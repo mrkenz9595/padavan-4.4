@@ -76,6 +76,8 @@ jobs:
         run: |
           sudo apt update
           sudo apt install libtool-bin gperf python3-docutils autopoint gettext ccache
+          wget https://github.com/mrkenz9595/padavan-4.4/releases/download/toolchain/mipsel-linux-uclibc-gcc10.tar.xz
+          tar -xJf mipsel-linux-uclibc-gcc10.tar.xz -C toolchain
       - name: Start Build
         run: |
           make ${{ inputs.target }}
