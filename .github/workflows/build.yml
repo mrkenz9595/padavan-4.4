@@ -78,9 +78,6 @@ jobs:
           sudo apt install libtool-bin gperf python3-docutils autopoint gettext ccache
       - name: Start Build
         run: |
-          wget https://github.com/mrkenz9595/padavan-4.4/releases/download/toolchain/mipsel-linux-uclibc-gcc10.tar.xz
-          mkdir -p toolchain
-          tar -xJf mipsel-linux-uclibc-gcc10.tar.xz -C toolchain
           make ${{ inputs.target }}
           echo "TAG_ANME=$(date +%Y%m%d)" >> $GITHUB_ENV
       - uses: actions/upload-artifact@v3
