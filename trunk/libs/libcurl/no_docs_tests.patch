@@ -1,0 +1,64 @@
+diff --git a/curl-8.15.0/Makefile.am b/curl-8.15.0/Makefile.am
+index 08d59e8..c1a62ab 100644
+--- curl-8.15.0/Makefile.am
++++ curl-8.15.0/Makefile.am
+@@ -87,8 +87,8 @@ DISTCLEANFILES = buildinfo.txt
+ 
+ bin_SCRIPTS = curl-config
+ 
+-SUBDIRS = lib docs src scripts
+-DIST_SUBDIRS = $(SUBDIRS) tests packages include docs
++SUBDIRS = lib src
++DIST_SUBDIRS = $(SUBDIRS) packages include
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libcurl.pc
+diff --git a/curl-8.15.0/Makefile.in b/curl-8.15.0/Makefile.in
+index 8d6bb53..f73037d 100644
+--- curl-8.15.0/Makefile.in
++++ curl-8.15.0/Makefile.in
+@@ -500,8 +500,8 @@ EXTRA_DIST = CHANGES.md COPYING RELEASE-NOTES Dockerfile \
+ 
+ DISTCLEANFILES = buildinfo.txt
+ bin_SCRIPTS = curl-config
+-SUBDIRS = lib docs src scripts
+-DIST_SUBDIRS = $(SUBDIRS) tests packages include docs
++SUBDIRS = lib src
++DIST_SUBDIRS = $(SUBDIRS) packages include
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libcurl.pc
+ all: all-recursive
+diff --git a/curl-8.15.0/configure.ac b/curl-8.15.0/configure.ac
+index bce4bf6..4e985d4 100644
+--- curl-8.15.0/configure.ac
++++ curl-8.15.0/configure.ac
+@@ -5501,29 +5501,12 @@ CURL_PREPARE_CONFIGUREHELP_PM
+ 
+ AC_CONFIG_FILES([\
+   Makefile \
+-  docs/Makefile \
+-  docs/examples/Makefile \
+-  docs/libcurl/Makefile \
+-  docs/libcurl/opts/Makefile \
+-  docs/cmdline-opts/Makefile \
+   include/Makefile \
+   include/curl/Makefile \
+   src/Makefile \
+   lib/Makefile \
+   scripts/Makefile \
+   lib/libcurl.vers \
+-  tests/Makefile \
+-  tests/config \
+-  tests/configurehelp.pm \
+-  tests/certs/Makefile \
+-  tests/data/Makefile \
+-  tests/server/Makefile \
+-  tests/libtest/Makefile \
+-  tests/unit/Makefile \
+-  tests/tunit/Makefile \
+-  tests/client/Makefile \
+-  tests/http/config.ini \
+-  tests/http/Makefile \
+   packages/Makefile \
+   packages/vms/Makefile \
+   curl-config \

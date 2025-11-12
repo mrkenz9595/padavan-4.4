@@ -1,5 +1,5 @@
-SRC_NAME=curl-8.12.1
-SRC_URL=https://github.com/curl/curl/releases/download/curl-8_12_1/curl-8.12.1.tar.xz
+SRC_NAME=curl-8.15.0
+SRC_URL=https://github.com/curl/curl/releases/download/curl-8_15_0/curl-8.15.0.tar.xz
 
 LDFLAGS += -Wl,-rpath-link=$(STAGEDIR)/lib
 
@@ -14,6 +14,7 @@ download_test:
 extract_test:
 	( if [ ! -d $(SRC_NAME) ]; then \
 		tar xf $(SRC_NAME).tar.xz; \
+		patch -d $(SRC_NAME) -p1 -i ../no_docs_tests.patch; \
 	fi )
 
 config_test:
